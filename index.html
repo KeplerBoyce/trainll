@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css">
+        <script type="text/javascript" src="script.js"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+    </head>
+    <body>
+        <header id='algset-title'>
+            OLL
+        </header>
+        <div class='button-bar'>
+            <div id='recap-stats'></div>
+            <div id='num-selected'></div>
+            <button onclick='updateSelectedMode("random")' class='mode-button' id='random'>Random</button>
+            <button onclick='updateSelectedMode("train-worst")' class='mode-button' id='train-worst'>Train worst</button>
+            <button onclick='updateSelectedMode("recap")' class='mode-button' id='recap'>Recap</button>
+            <button onclick='updateSelectedMode("test-all")' class='mode-button' id='test-all'>Test all</button>
+        </div>
+        <div id='draw-scramble'></div>
+        <div id='algset-button'>
+            <button onclick='toggleAlgsetDropdown()'>Select algset</button>
+            <div id='algsets' onclick='updateAlgset()'>
+                <div class='algset-input-container'>
+                    <input type=radio name='algsets' id='algsets-oll' checked>
+                    <label for='algsets-oll'>OLL</label>
+                </div>
+                <div class='algset-input-container'>
+                    <input type=radio name='algsets' id='algsets-pll'>
+                    <label for='algsets-pll'>PLL</label>
+                </div>
+                <div class='algset-input-container'>
+                    <input type=radio name='algsets' id='algsets-coll'>
+                    <label for='algsets-coll'>COLL</label>
+                </div>
+                <div class='algset-input-container'>
+                    <input type=radio name='algsets' id='algsets-zbll'>
+                    <label for='algsets-zbll'>ZBLL</label>
+                </div>
+            </div>
+        </div>
+        <aside id='aside'>
+            <span class='bold'>Select cases<br></span>
+        </aside>
+        <div id='random-orientation'>
+            <button onclick='setRandomOrientation(true)' id='random-orient-on'>Random orientation</button>
+            <button onclick='setRandomOrientation(false)' id='random-orient-off'>Yellow top green front</button>
+        </div>
+        <div id='reset-button'>
+            <button onclick='resetStats()'>Reset this algset</button>
+        </div>
+        <div id='trainer'>
+            <div id='scramble'>Scramble: </div>
+            <div id='train-buttons'>
+                <button onclick='nextCase(true)'>Remembered</button>
+                <button onclick='nextCase(false)'>Forgot</button>
+            </div>
+            <div id='stats'>
+                <div id='percent'></div>
+                <div id='success-rate'></div>
+                <div id='worst-cases'></div>
+                <div id='num-learned'></div>
+            </div>
+        </div>
+    </body>
+</html>

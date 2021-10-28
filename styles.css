@@ -1,0 +1,252 @@
+body {
+    margin: 0;
+    display: grid;
+    grid-template-areas: 'h b b'
+                         'g t d'
+                         'a t d'
+                         'a o d'
+                         'a r d'
+                         'a e e';
+    grid-template-columns: 250px auto min-content;
+    background-color: #232731;
+    font-family: oxygen;
+}
+
+button {
+    margin-top: 5px;
+    font-family: oxygen;
+    font-size: 16px;
+}
+
+header {
+    grid-area: h;
+    padding: 20px 0 10px 17px;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    color: #81BCBB;
+}
+
+aside {
+    margin: 0 8px 8px;
+    padding: 8px 10px 10px;
+    grid-area: a;
+    background-color: #3B4252;
+    color: #9dd0f0;
+    line-height: 1.5;
+    height: min-content;
+}
+
+aside .bold {
+    color: #81BCBB;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-button {
+    padding: 2px 5px;
+    margin-right: 4px;
+    text-align: left;
+    background-color: #3B4252;
+    color: #9dd0f0;
+    border: none;
+}
+
+.dropdown-button:hover {
+    background-color: #4C566A;
+    color: #bedfa1;
+}
+
+.dropdown-content {
+    display: none;
+    background-color: #3B4252;
+    color: #9dd0f0;
+    width: 214px;
+    z-index: 1;
+}
+
+.input-container {
+    display: flex;
+    overflow: hidden;
+}
+
+.input-container input {
+    margin-top: 6px;
+}
+
+.input-container label {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+
+.input-container:hover {
+    background-color: #4C566A;
+    color: #bedfa1;
+}
+
+.button-bar {
+    display: flex;
+    grid-area: b;
+    justify-content: right;
+    height: min-content;
+    color: #9dd0f0;
+}
+
+.button-bar button {
+    padding: 5px 10px;
+    margin-right: 4px;
+    background-color: #3B4252;
+    color: #9dd0f0;
+    border: none;
+}
+
+#recap-stats {
+    padding: 5px;
+    margin: 5px 14px 0 0;
+    background-color: #232731;
+    color: #9dd0f0;
+    border: none;
+}
+
+#num-selected {
+    padding: 5px;
+    margin: 5px 8px 0 0;
+    background-color: #232731;
+    color: #9dd0f0;
+    border: none;
+}
+
+.button-bar button:hover {
+    background-color: #4C566A;
+    color: #bedfa1;
+}
+
+#trainer {
+    margin-top: 8px;
+    grid-area: t;
+    color: #9dd0f0;
+}
+
+#scramble {
+    margin: 5px 0 10px 10px;
+    font-size: 20px;
+}
+
+#train-buttons {
+    margin-left: 10px;
+}
+
+#trainer button {
+    margin: 0px;
+    padding: 5px 10px;
+    background-color: #3B4252;
+    color: #9dd0f0;
+    border: none;
+}
+
+#trainer button:hover {
+    background-color: #4C566A;
+    color: #bedfa1;
+}
+
+#stats {
+    margin: 20px 8px 0 10px;
+    grid-area: s;
+}
+
+#stats div {
+    margin-top: 10px;
+}
+
+#reset-button {
+    margin-top: 10px;
+    grid-area: r;
+}
+
+#reset-button button {
+    margin: 8px 8px 0;
+    padding: 5px 10px;
+    background-color: #3B4252;
+    color: #9dd0f0;
+    border: none;
+}
+
+#reset-button button:hover {
+    background-color: #4C566A;
+    color: #ffacac;
+}
+
+#random-orientation {
+    margin: 10px 0 0 8px;
+    grid-area: o;
+}
+
+#random-orientation button {
+    padding: 5px 10px;
+    background-color: #3B4252;
+    color: #9dd0f0;
+    border: none;
+}
+
+#random-orientation button:hover {
+    background-color: #4C566A;
+    color: #bedfa1;
+}
+
+#algset-button {
+    margin: 0 0 10px 8px;
+    grid-area: g;
+}
+
+#algset-button button {
+    padding: 5px 10px;
+    background-color: #3B4252;
+    color: #81BCBB;
+    border: none;
+}
+
+#algset-button button:hover {
+    background-color: #4C566A;
+    color: #bedfa1;
+}
+
+#algsets {
+    display: none;
+    background-color: #3B4252;
+    margin-right: 8px;
+}
+
+.algset-input-container {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: #9dd0f0;
+}
+
+.algset-input-container:hover {
+    background-color: #4C566A;
+    color: #bedfa1;
+}
+
+.algset-input-container input {
+    margin: 0 0 0 8px;
+}
+
+.algset-input-container label {
+    padding: 3px 5px;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+
+#draw-scramble {
+    display: grid;
+    grid-template-areas: 'a b c d e';
+    margin-right: 20px;
+    grid-area: d;
+    height: min-content;
+}
