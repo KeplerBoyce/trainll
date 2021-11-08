@@ -1,8 +1,11 @@
 window.onload = function() {
     updateArrs();
     addCaseElements();
+    checkSelectedCases();
     updateCheckedCases();
-    setCheckedCasesFromStorage();
+    groups[indexOfMode].forEach(el => {
+        updateCheckAllButton(el.name);
+    });
     setRandomOrientation(false);
     updateSelectedMode("random");
 }
@@ -320,7 +323,7 @@ var aufAfter = "";
 //yellow green red blue orange white
 var colors = ["#fff754", "#50e643", "#ff5252", "#3ba0ff", "#ffb13b", "white"];
 
-//generates aside on left with checkboxes of algs in groups
+//generates dropdown menus on left with checkboxes of algs in groups
 function addCaseElements() {
     objects.forEach(e => {
         const parentDiv = document.getElementById('aside');
@@ -384,6 +387,12 @@ function addCaseElements() {
     });
 }
 
+//removes dropdown menus of alg groups
+function removeCaseElements() {
+    var elements = document.getElementsByClassName("dropdown");
+    while (elements.length > 0) elements[0].remove();
+}
+
 //handles checking/unchecking the "check all" boxes
 function checkAllInGroup(name) {
     var boxArr = document.getElementsByName(name);
@@ -402,17 +411,18 @@ function checkAllInGroup(name) {
 function updateCheckAllButton(name) {
     var boxArr = document.getElementsByName(name);
     var boxesToCheck = [...boxArr];
+    var allBox = boxesToCheck.shift();
     var direction = true;
     boxesToCheck.forEach(el => {
         if (!el.checked) direction = false;
     });
     var label = document.getElementById(name + '-checkall-label');
     if (direction) {
-        boxesToCheck[0].checked = true;
+        allBox.checked = true;
         label.textContent = "Deselect all";
     }
     else {
-        boxesToCheck[0].checked = false;
+        allBox.checked = false;
         label.textContent = "Select all";
     }
 }
@@ -457,6 +467,7 @@ function updateArrs() {
 
 //handles switching algsets
 function updateAlgset() {
+    removeCaseElements();
     var containers = document.getElementsByClassName('algset-input-container');
     var containerArray = [...containers];
     containerArray.forEach(el => {
@@ -467,6 +478,11 @@ function updateAlgset() {
             indexOfMode = order.indexOf(str.toLowerCase());
             title.textContent = str;
             updateArrs();
+            addCaseElements();
+            checkSelectedCases();
+            groups[indexOfMode].forEach(el => {
+                updateCheckAllButton(el.name);
+            });
             updateStats();
             nextCase(null);
         }
@@ -505,8 +521,8 @@ function updateCheckedCases() {
     updateStats();
 }
 
-//sets checkedCases array from local storage
-function setCheckedCasesFromStorage() {
+//checks boxes according to checkedCases array
+function checkSelectedCases() {
     checkedCases[indexOfMode].forEach(el => {
         document.getElementById(el).checked = true;
     });
