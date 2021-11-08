@@ -320,6 +320,7 @@ var aufAfter = "";
 //yellow green red blue orange white
 var colors = ["#fff754", "#50e643", "#ff5252", "#3ba0ff", "#ffb13b", "white"];
 
+//generates aside on left with checkboxes of algs in groups
 function addCaseElements() {
     objects.forEach(e => {
         const parentDiv = document.getElementById('aside');
@@ -383,6 +384,7 @@ function addCaseElements() {
     });
 }
 
+//handles checking/unchecking the "check all" boxes
 function checkAllInGroup(name) {
     var boxArr = document.getElementsByName(name);
     var boxesToCheck = [...boxArr];
@@ -396,6 +398,7 @@ function checkAllInGroup(name) {
     updateCheckAllButton(name);
 }
 
+//updates box and text when tou check/uncheck the "check all" boxes
 function updateCheckAllButton(name) {
     var boxArr = document.getElementsByName(name);
     var boxesToCheck = [...boxArr];
@@ -414,6 +417,7 @@ function updateCheckAllButton(name) {
     }
 }
 
+//opens/closes dropdown menu of alg group
 function toggleDropdown(id) {
     var elem = document.getElementById(id);
     if (elem.style.display !== "block") {
@@ -434,12 +438,14 @@ function toggleDropdown(id) {
     }
 }
 
+//opens/closes dropdown menu of algset options
 function toggleAlgsetDropdown() {
     var algsetDropdown = document.getElementById('algsets');
     if (algsetDropdown.style.display !== 'block') algsetDropdown.style.display = 'block';
     else algsetDropdown.style.display = 'none';
 }
 
+//updates arrays (for when you switch algsets)
 function updateArrs() {
     objects = [];
     for (var i = 0; i < groups[indexOfMode].length; i++) {
@@ -449,6 +455,7 @@ function updateArrs() {
     names = nameSets[indexOfMode];
 }
 
+//handles switching algsets
 function updateAlgset() {
     var containers = document.getElementsByClassName('algset-input-container');
     var containerArray = [...containers];
@@ -466,6 +473,7 @@ function updateAlgset() {
     });
 }
 
+//updates array of checked cases when you check/uncheck an alg checkbox
 function updateCheckedCases() {
     checkedCases = [];
     checkedAlgs = [];
@@ -497,6 +505,7 @@ function updateCheckedCases() {
     updateStats();
 }
 
+//sets checkedCases array from local storage
 function setCheckedCasesFromStorage() {
     checkedCases[indexOfMode].forEach(el => {
         document.getElementById(el).checked = true;
@@ -510,6 +519,7 @@ function setCheckedCasesFromStorage() {
     }
 }
 
+//updates mode when you press one of the mode buttons
 function updateSelectedMode(newMode) {
     mode = newMode;
     if (mode === "recap") {
@@ -535,6 +545,7 @@ function updateSelectedMode(newMode) {
     nextCase(null);
 }
 
+//chooses next alg for random mode
 function algRandom() {
     if (checkedAlgs[indexOfMode].length === 1) return checkedAlgs[0];
     else {
@@ -546,6 +557,7 @@ function algRandom() {
     }
 }
 
+//chooses next alg for train worst mode
 function algTrainWorst() {
     if (checkedAlgs[indexOfMode].length === 1) return checkedAlgs[indexOfMode][0];
     else {
@@ -555,6 +567,7 @@ function algTrainWorst() {
     }
 }
 
+//choose next alg for recap mode
 function algRecap() {
     var recapStats = document.getElementById("recap-stats");
     recapStats.textContent = "Recap: " + (numToRecap - recapAlgs.length + 1) + " of " + numToRecap;
@@ -566,6 +579,7 @@ function algRecap() {
     return recapCase;
 }
 
+//gets worst cases based on lastFive values
 function getWorstCases(cases) {
     var worst = [];
     var threshold = 5;
@@ -584,6 +598,7 @@ function getWorstCases(cases) {
     return worst;
 }
 
+//generates and displays the next case
 function nextCase(remembered) {
     if (remembered !== null) {
         if (remembered) {
@@ -638,6 +653,7 @@ function nextCase(remembered) {
     drawScramble(invertCase(completeAlg));
 }
 
+//updates stats section
 function updateStats() {
     var percent = document.getElementById('percent');
     var successRate = document.getElementById('success-rate');
@@ -683,6 +699,7 @@ function updateStats() {
     numLearned.textContent = totalLearned + "/" + algs.length + " cases fully learned";
 }
 
+//resets stats and local storage for this algset
 function resetStats() {
     checkedCases[indexOfMode] = [];
     lastFive[indexOfMode] = [];
@@ -712,6 +729,7 @@ function resetStats() {
     document.getElementById("recap-stats").textContent = "Recap: N/A";
 }
 
+//sets random orientation mode based on the button you pressed
 function setRandomOrientation(bool) {
     randomOrientation = bool;
     if (bool) {
@@ -723,6 +741,7 @@ function setRandomOrientation(bool) {
     }
 }
 
+//generates a random rotation (string to append to alg/scramble)
 function genRandomRotate() {
     var arr = [];
     var face = 6*Math.random();
@@ -738,6 +757,7 @@ function genRandomRotate() {
     return arr.join(" ");
 }
 
+//returns the inverse of a given string of moves
 function invertCase(str) {
     var moves = str.split(' ').reverse();
     moves = moves.map(el => {
@@ -748,6 +768,7 @@ function invertCase(str) {
     return moves.join(' ');
 }
 
+//cancels adjacent moves of the same layer and rotations about the same axis
 function cancelMoves(str) {
     var arr = str.split(" ");
     for (var i = 0; i < arr.length - 1; i++) {
@@ -771,6 +792,7 @@ function cancelMoves(str) {
     return arr.join(" ");
 }
 
+//generates random AUF as a string to append to case/scramble
 function genRandomAUF() {
     var rand1 = Math.random();
     var rand2 = Math.random();
@@ -786,6 +808,7 @@ function genRandomAUF() {
     else aufAfter = " U2"
 }
 
+//colors divs in draw scramble area to display stickers of the scramble
 function drawScramble(scramble) {
     var moves = scramble.split(" ");
     var tempState = getStartingState();
@@ -814,6 +837,7 @@ function drawScramble(scramble) {
     }
 }
 
+//returns the starting state of sticker array
 function getStartingState() {
     return [[0, 0, 0, 0, 0, 0, 0, 0, 0],//0 1 2
             [1, 1, 1, 1, 1, 1, 1, 1, 1],//3 4 5
@@ -822,7 +846,8 @@ function getStartingState() {
             [4, 4, 4, 4, 4, 4, 4, 4, 4],//U F L B R D
             [5, 5, 5, 5, 5, 5, 5, 5, 5]];
 }
-/*template
+
+/*template for applyMove case
 [
     [s[0][0], s[0][1], s[0][2], s[0][3], s[0][4], s[0][5], s[0][6], s[0][7], s[0][8]],
     [s[1][0], s[1][1], s[1][2], s[1][3], s[1][4], s[1][5], s[1][6], s[1][7], s[1][8]],
@@ -832,6 +857,8 @@ function getStartingState() {
     [s[5][0], s[5][1], s[5][2], s[5][3], s[5][4], s[5][5], s[5][6], s[5][7], s[5][8]]
 ];
 */
+
+//cycles stickers in sticker array according to the move applied
 function applyMove(s, m) {
     switch (m) {
         case "U":
