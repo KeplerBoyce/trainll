@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="styles.css">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+    </head>
+    <body>
+        <nav>
+            <name>
+                <a href='index.html' class='active-page'>trainll.com</a>
+            </name>
+            <a href='oll.html'>OLL</a>
+            <a href='pll.html'>PLL</a>
+            <a href='coll.html'>COLL</a>
+            <a href=''>ZBLL</a>
+        </nav>
+        <header>
+            Last Layer Trainer
+        </header>
+        <div id='subheader'>
+            <div>
+                This website allows you to train specific 3x3 LL cases and determine which cases
+                you need more practice with. Click one of the tabs at the top to train or see your stats
+                at a glance here.
+            </div>
+            <div>
+                Training modes:<br>
+                Random — Random, no cases twice in a row<br>
+                Train worst — Keeps track of last 5 attempts for each case and trains worst cases<br>
+                Recap — Trains every selected alg exactly once in a random order<br>
+                Test all — Recap for entire alg set
+            </div>
+        </div>
+        <aside>
+            <span class='bold'>quick stats<br></span>
+            <label>
+                <input type='radio' name='stats' checked>OLL<br></input>
+            </label>
+            <label>
+                <input type='radio' name='stats'>PLL</input>
+            </label>
+            <label>
+                <input type='radio' name='stats'>COLL<br></input>
+            </label>
+            <label>
+                <input type='radio' name='stats'>ZBLL</input>
+            </label>
+        </aside>
+        <div id='stats'>
+            this is where the stats will go
+        </div>
+    </body>
+</html>

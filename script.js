@@ -1,11 +1,10 @@
 window.onload = function() {
     updateArrs();
     addCaseElements();
+    updateCheckedCases();
     setCheckedCasesFromStorage();
     setRandomOrientation(false);
     updateSelectedMode("random");
-    updateCheckedCases();
-    updateStats();
 }
 
 var groups = [
@@ -135,208 +134,7 @@ var groups = [
             "numbers": [35, 36, 37, 38, 39, 40]
         }
     ],//coll
-    [
-        {
-            "displayname": "T1",
-            "name": "t1",
-            "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-        },
-        {
-            "displayname": "T2",
-            "name": "t2",
-            "numbers": [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
-        },
-        {
-            "displayname": "T3",
-            "name": "t3",
-            "numbers": [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
-        },
-        {
-            "displayname": "T4",
-            "name": "t4",
-            "numbers": [37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48]
-        },
-        {
-            "displayname": "T5",
-            "name": "t5",
-            "numbers": [49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
-        },
-        {
-            "displayname": "T6",
-            "name": "t6",
-            "numbers": [61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72]
-        },
-        {
-            "displayname": "U1",
-            "name": "u1",
-            "numbers": [73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84]
-        },
-        {
-            "displayname": "U2",
-            "name": "u2",
-            "numbers": [85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96]
-        },
-        {
-            "displayname": "U3",
-            "name": "u3",
-            "numbers": [97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108]
-        },
-        {
-            "displayname": "U4",
-            "name": "u4",
-            "numbers": [109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120]
-        },
-        {
-            "displayname": "U5",
-            "name": "u5",
-            "numbers": [121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132]
-        },
-        {
-            "displayname": "U6",
-            "name": "u6",
-            "numbers": [133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144]
-        },
-        {
-            "displayname": "L1",
-            "name": "l1",
-            "numbers": [145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156]
-        },
-        {
-            "displayname": "L2",
-            "name": "l2",
-            "numbers": [157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168]
-        },
-        {
-            "displayname": "L3",
-            "name": "l3",
-            "numbers": [169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180]
-        },
-        {
-            "displayname": "L4",
-            "name": "l4",
-            "numbers": [181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192]
-        },
-        {
-            "displayname": "L5",
-            "name": "l5",
-            "numbers": [193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204]
-        },
-        {
-            "displayname": "L6",
-            "name": "l6",
-            "numbers": [205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216]
-        },
-        {
-            "displayname": "Pi1",
-            "name": "pi1",
-            "numbers": [217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228]
-        },
-        {
-            "displayname": "Pi2",
-            "name": "pi2",
-            "numbers": [229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240]
-        },
-        {
-            "displayname": "Pi3",
-            "name": "pi3",
-            "numbers": [241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252]
-        },
-        {
-            "displayname": "Pi4",
-            "name": "pi4",
-            "numbers": [253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264]
-        },
-        {
-            "displayname": "Pi5",
-            "name": "pi5",
-            "numbers": [265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276]
-        },
-        {
-            "displayname": "Pi6",
-            "name": "pi6",
-            "numbers": [277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288]
-        },
-        {
-            "displayname": "H1",
-            "name": "h1",
-            "numbers": [289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300]
-        },
-        {
-            "displayname": "H2",
-            "name": "h2",
-            "numbers": [301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312]
-        },
-        {
-            "displayname": "H3",
-            "name": "h3",
-            "numbers": [313, 314, 315, 316, 317, 318, 319, 320]
-        },
-        {
-            "displayname": "H4",
-            "name": "h4",
-            "numbers": [321, 322, 323, 324, 325, 326, 327, 328]
-        },
-        {
-            "displayname": "S1",
-            "name": "s1",
-            "numbers": [329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340]
-        },
-        {
-            "displayname": "S2",
-            "name": "s2",
-            "numbers": [341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352]
-        },
-        {
-            "displayname": "S3",
-            "name": "s3",
-            "numbers": [353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364]
-        },
-        {
-            "displayname": "S4",
-            "name": "s4",
-            "numbers": [365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376]
-        },
-        {
-            "displayname": "S5",
-            "name": "s5",
-            "numbers": [377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388]
-        },
-        {
-            "displayname": "S6",
-            "name": "s6",
-            "numbers": [389, 390, 391, 392, 393, 394, 395, 396, 397, 398, 399, 400]
-        },
-        {
-            "displayname": "AS1",
-            "name": "as1",
-            "numbers": [401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412]
-        },
-        {
-            "displayname": "AS2",
-            "name": "as2",
-            "numbers": [413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424]
-        },
-        {
-            "displayname": "AS3",
-            "name": "as3",
-            "numbers": [425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436]
-        },
-        {
-            "displayname": "AS4",
-            "name": "as4",
-            "numbers": [437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448]
-        },
-        {
-            "displayname": "AS5",
-            "name": "as5",
-            "numbers": [449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460]
-        },
-        {
-            "displayname": "AS6",
-            "name": "as6",
-            "numbers": [461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472]
-        }
-    ]//zbll
+    []//zbll
 ];
 var order = ["oll", "pll", "coll", "zbll"];
 var algSets = [
@@ -464,480 +262,7 @@ var algSets = [
         "R' U L U' R U L'",
         "R U' R' U2 R U' R' U2 R' D' R U R' D R"
     ],//coll
-    [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-    ]//zbll
+    []//zbll
 ];
 var nameSets = [
     [
@@ -959,56 +284,7 @@ var nameSets = [
         "T5", "T6", "U1", "U2", "U3", "U4", "U5", "U6", "S1", "S2",
         "S3", "S4", "S5", "S6", "AS1", "AS2", "AS3", "AS4", "AS5", "AS6"
     ],//coll
-    [
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", "", "", "", "", "", "", "", "", "",
-        "", ""
-    ]//zbll
+    []//zbll
 ];
 var indexOfMode = 0;
 var objects = [];
@@ -1237,8 +513,8 @@ function setCheckedCasesFromStorage() {
 function updateSelectedMode(newMode) {
     mode = newMode;
     if (mode === "recap") {
-        if (checkedAlgs.length === 0) recapAlgs = algs;
-        else recapAlgs = checkedAlgs;
+        if (checkedAlgs[indexOfMode].length === 0) recapAlgs = algs;
+        else recapAlgs = checkedAlgs[indexOfMode];
         numToRecap = recapAlgs.length;
         recapNumSuccessful = 0;
     }
@@ -1260,21 +536,21 @@ function updateSelectedMode(newMode) {
 }
 
 function algRandom() {
-    if (checkedAlgs.length === 1) return checkedAlgs[0];
+    if (checkedAlgs[indexOfMode].length === 1) return checkedAlgs[0];
     else {
         var algsToSelectFrom;
-        if (checkedAlgs.length === 0) algsToSelectFrom = algs;
-        else algsToSelectFrom = checkedAlgs;
+        if (checkedAlgs[indexOfMode].length === 0) algsToSelectFrom = algs;
+        else algsToSelectFrom = checkedAlgs[indexOfMode];
         algsToSelectFrom = algsToSelectFrom.filter(el => el !== lastCase);
         return algsToSelectFrom[Math.floor(algsToSelectFrom.length*Math.random())];
     }
 }
 
 function algTrainWorst() {
-    if (checkedAlgs.length === 1) return checkedAlgs[0];
+    if (checkedAlgs[indexOfMode].length === 1) return checkedAlgs[indexOfMode][0];
     else {
-        if (checkedAlgs.length === 0) worst = getWorstCases(algs.filter(x => x !== lastCase));
-        else worst = getWorstCases(checkedAlgs.filter(x => x !== lastCase));
+        if (checkedAlgs[indexOfMode].length === 0) worst = getWorstCases(algs.filter(x => x !== lastCase));
+        else worst = getWorstCases(checkedAlgs[indexOfMode].filter(x => x !== lastCase));
         return worst[Math.floor(worst.length*Math.random())];
     }
 }
@@ -1393,7 +669,7 @@ function updateStats() {
     var tempStr = "Current worst of selected: ";
     if (totalSuccesses === algs.length*5) tempStr += "none!"
     else {
-        var worst = getWorstCases(checkedAlgs.length === 0 ? algs : checkedAlgs);
+        var worst = getWorstCases(checkedAlgs[indexOfMode].length === 0 ? algs : checkedAlgs[indexOfMode]);
         var worstCaseNames = [];
         worst.forEach(el => {
             worstCaseNames.push(names[algs.indexOf(el)]);
@@ -1408,13 +684,13 @@ function updateStats() {
 }
 
 function resetStats() {
-    localStorage.removeItem("checkedCases");
-    localStorage.removeItem("lastFive");
-    checkedCases = [];
-    lastFive = [];
-    for (var i = 0; i < algs.length; i++) {
-        lastFive.push([-1, -1, -1, -1, -1]);
+    checkedCases[indexOfMode] = [];
+    lastFive[indexOfMode] = [];
+    for (var i = 0; i < algSets[indexOfMode].length; i++) {
+        lastFive[indexOfMode].push([-1, -1, -1, -1, -1]);
     }
+    localStorage.setItem("checkedCases", JSON.stringify(checkedCases));
+    localStorage.setItem("lastFive", JSON.stringify(lastFive));
     var checkalls = document.getElementsByClassName('group-checkall');
     var checkallArr = [...checkalls];
     checkallArr.forEach(el => {
