@@ -9,9 +9,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
     </head>
     <body>
-        <header id='algset-title'>
-            OLL
-        </header>
+        <header id='algset-title'></header>
         <div class='button-bar'>
             <div id='recap-stats'></div>
             <div id='num-selected'></div>
@@ -23,24 +21,7 @@
         <div id='draw-scramble'></div>
         <div id='algset-button'>
             <button onclick='toggleAlgsetDropdown()'>Select algset</button>
-            <div id='algsets' onclick='updateAlgset()'>
-                <div class='algset-input-container'>
-                    <input type=radio name='algsets' id='algsets-oll' checked>
-                    <label for='algsets-oll'>OLL</label>
-                </div>
-                <div class='algset-input-container'>
-                    <input type=radio name='algsets' id='algsets-pll'>
-                    <label for='algsets-pll'>PLL</label>
-                </div>
-                <div class='algset-input-container'>
-                    <input type=radio name='algsets' id='algsets-coll'>
-                    <label for='algsets-coll'>COLL</label>
-                </div>
-                <div class='algset-input-container'>
-                    <input type=radio name='algsets' id='algsets-zbll'>
-                    <label for='algsets-zbll'>ZBLL</label>
-                </div>
-            </div>
+            <div id='algsets' onclick='updateAlgset()'></div>
         </div>
         <aside id='aside'>
             <span class='bold'>Select cases<br></span>
@@ -53,7 +34,7 @@
             <button onclick='resetStats()'>Reset this algset</button>
         </div>
         <div id='trainer'>
-            <div id='scramble'>Scramble: </div>
+            <div id='scramble'></div>
             <div id='train-buttons'>
                 <button onclick='nextCase(true)'>Remembered</button>
                 <button onclick='nextCase(false)'>Forgot</button>

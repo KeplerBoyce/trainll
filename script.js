@@ -1,5 +1,6 @@
 window.onload = function() {
     updateArrs();
+    addAlgsetElements();
     addCaseElements();
     checkSelectedCases();
     updateCheckedCases();
@@ -322,6 +323,27 @@ var aufBefore = "";
 var aufAfter = "";
 //yellow green red blue orange white
 var colors = ["#fff754", "#50e643", "#ff5252", "#3ba0ff", "#ffb13b", "white"];
+
+//generates input elements for choosing algset
+function addAlgsetElements() {
+    var algsetDiv = document.getElementById("algsets");
+    order.forEach(set => {
+        var algsetContainer = document.createElement("div");
+        algsetContainer.setAttribute("class", "algset-input-container");
+        var inputElem = document.createElement("input");
+        inputElem.setAttribute("type", "radio");
+        inputElem.setAttribute("name", "algsets");
+        inputElem.setAttribute("id", "algsets-" + set);
+        if (set === order[0]) inputElem.setAttribute("checked", true);
+        var labelElem = document.createElement("label");
+        labelElem.setAttribute("for", "algsets-" + set);
+        labelElem.textContent = set.toUpperCase();
+        algsetContainer.appendChild(inputElem);
+        algsetContainer.appendChild(labelElem);
+        algsetDiv.appendChild(algsetContainer);
+    });
+
+}
 
 //generates dropdown menus on left with checkboxes of algs in groups
 function addCaseElements() {
