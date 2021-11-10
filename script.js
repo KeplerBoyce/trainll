@@ -491,12 +491,8 @@ function updateAlgset() {
 
 //updates array of checked cases when you check/uncheck an alg checkbox
 function updateCheckedCases() {
-    checkedCases = [];
-    checkedAlgs = [];
-    for (var i = 0; i < order.length; i++) {
-        checkedCases.push([]);
-        checkedAlgs.push([]);
-    }
+    checkedCases[indexOfMode] = [];
+    checkedAlgs[indexOfMode] = [];
     var numSelected = 0;
     var inputElements = document.getElementsByClassName('case-checkbox');
     for (var i = 0; i < inputElements.length; i++) {
