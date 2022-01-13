@@ -1,4 +1,6 @@
 window.onload = function() {
+    indexOfMode = order.indexOf(localStorage.getItem("algsetTitle").toLowerCase());
+    setAlgsetTitle();
     updateArrs();
     addAlgsetElements();
     addCaseElements();
@@ -140,7 +142,7 @@ var groups = [
     ],//coll
     []//zbll
 ];
-var order = ["oll", "pll", "coll", "zbll"];
+var order = ["oll", "pll", "coll"];
 var algSets = [
     [
         "R U2 R2 F R F' U2 R' F R F'",
@@ -265,8 +267,7 @@ var algSets = [
         "R U2 R' U2 L' U R U' R' L",
         "R' U L U' R U L'",
         "R U' R' U2 R U' R' U2 R' D' R U R' D R"
-    ],//coll
-    []//zbll
+    ]//coll
 ];
 var nameSets = [
     [
@@ -287,10 +288,9 @@ var nameSets = [
         "Pi1", "Pi2", "Pi3", "Pi4", "Pi5", "Pi6", "T1", "T2", "T3", "T4",
         "T5", "T6", "U1", "U2", "U3", "U4", "U5", "U6", "S1", "S2",
         "S3", "S4", "S5", "S6", "AS1", "AS2", "AS3", "AS4", "AS5", "AS6"
-    ],//coll
-    []//zbll
+    ]//coll
 ];
-var indexOfMode = 0;
+var indexOfMode;
 var objects = [];
 var algs = [];
 var names = [];
@@ -334,7 +334,7 @@ function addAlgsetElements() {
         inputElem.setAttribute("type", "radio");
         inputElem.setAttribute("name", "algsets");
         inputElem.setAttribute("id", "algsets-" + set);
-        if (set === order[0]) inputElem.setAttribute("checked", true);
+        if (set === order[indexOfMode]) inputElem.setAttribute("checked", true);
         var labelElem = document.createElement("label");
         labelElem.setAttribute("for", "algsets-" + set);
         labelElem.textContent = set.toUpperCase();
@@ -485,20 +485,29 @@ function updateArrs() {
     }
     algs = algSets[indexOfMode];
     names = nameSets[indexOfMode];
+    checkedAlgs[indexOfMode] = JSON.parse(localStorage.getItem("checkedCases"))[indexOfMode];
+    lastFive[indexOfMode] = JSON.parse(localStorage.getItem("lastFive"))[indexOfMode];
+}
+
+//sets algset title from local storage
+function setAlgsetTitle() {
+    var title = document.getElementById('algset-title');
+    title.textContent = localStorage.getItem("algsetTitle");
 }
 
 //handles switching algsets
 function updateAlgset() {
-    removeCaseElements();
     var containers = document.getElementsByClassName('algset-input-container');
     var containerArray = [...containers];
+    var title = document.getElementById('algset-title');
     containerArray.forEach(el => {
-        var title = document.getElementById('algset-title');
         if (el.firstElementChild.checked &&
             el.lastElementChild.textContent !== title.textContent) {
+            removeCaseElements();
             var str = el.lastElementChild.textContent;
             indexOfMode = order.indexOf(str.toLowerCase());
             title.textContent = str;
+            localStorage.setItem("algsetTitle", str);
             updateArrs();
             addCaseElements();
             checkSelectedCases();
@@ -581,7 +590,7 @@ function updateSelectedMode(newMode) {
 
 //chooses next alg for random mode
 function algRandom() {
-    if (checkedAlgs[indexOfMode].length === 1) return checkedAlgs[0];
+    if (checkedAlgs[indexOfMode].length === 1) return checkedAlgs[indexOfMode][0];
     else {
         var algsToSelectFrom;
         if (checkedAlgs[indexOfMode].length === 0) algsToSelectFrom = algs;
